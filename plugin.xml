@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="pro.moussawi7.plugins.GPSLocator"
+        version="0.1.0">
+
+  <name>GPS Locator</name>
+  <description>
+  This plugin get device geolocation from GPS/Network.
+  </description>
+
+  <license>MIT</license>
+
+  <engines>
+    <engine name="cordova" version=">=3.0.0"/>
+  </engines>
+
+  <js-module src="www/GPSLocator.js" name="GPSLocator">
+    <clobbers target="window.plugins.GPSLocator" />
+  </js-module>
+
+  <!-- android -->
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="GPSLocator">
+        <param name="android-package" value="pro.moussawi7.plugins.GPSLocator" />
+      </feature>
+    </config-file>
+
+       <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+        </config-file>
+
+    <source-file src="src/android/pro/moussawi7/plugins/GPSLocator.java" target-dir="src/pro/moussawi7/plugins"/>
+	<source-file src="src/android/pro/moussawi7/plugins/GPSTracker.java" target-dir="src/pro/moussawi7/plugins"/>
+  </platform>
+
+</plugin>
