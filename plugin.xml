@@ -15,25 +15,25 @@
     <engine name="cordova" version=">=3.0.0"/>
   </engines>
 
-  <js-module src="www/GPSLocator.js" name="GPSLocator">
-    <clobbers target="window.plugins.GPSLocator" />
-  </js-module>
-
   <!-- android -->
   <platform name="android">
+    <js-module src="www/GPSLocator.js" name="GPSLocator">
+      <clobbers target="window.plugins.GPSLocator" />
+    </js-module>
+  
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="GPSLocator">
         <param name="android-package" value="pro.moussawi7.plugins.GPSLocator" />
       </feature>
     </config-file>
 
-       <config-file target="AndroidManifest.xml" parent="/*">
-            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-        </config-file>
+    <config-file target="AndroidManifest.xml" parent="/*">
+      <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+      <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    </config-file>
 
     <source-file src="src/android/pro/moussawi7/plugins/GPSLocator.java" target-dir="src/pro/moussawi7/plugins"/>
-	<source-file src="src/android/pro/moussawi7/plugins/GPSTracker.java" target-dir="src/pro/moussawi7/plugins"/>
+    <source-file src="src/android/pro/moussawi7/plugins/GPSTracker.java" target-dir="src/pro/moussawi7/plugins"/>
   </platform>
 
 </plugin>
